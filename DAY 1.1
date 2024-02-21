@@ -1,0 +1,21 @@
+import pandas as pd
+
+# Load the dataset into a Pandas dataframe
+df = pd.read_csv('Book1.csv')  # Replace 'your_dataset.csv' with the actual filename or path
+
+# Show the first few rows of the dataframe
+print("First few rows of the dataframe:")
+print(df.head())
+
+# Calculate the total sales by summing up the TotalPrice column
+total_sales = df['tprice'].sum()
+print("\nTotal sales:", total_sales)
+
+# Find the average quantity of products ordered by customers
+average_quantity = df['qlty'].mean()
+print("\nAverage quantity of products ordered:", average_quantity)
+
+# Identify the top-selling products based on the Quantity column
+top_selling_products = df.groupby('pid')['qlty'].sum()
+print("\nTop-selling products:")
+print(top_selling_products)
