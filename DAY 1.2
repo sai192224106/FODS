@@ -1,0 +1,25 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Data
+data = {
+    'Smoking': [20, 15, 5, 25, 30, 10, 18, 22, 8, 12],
+    'LungCancer': [5, 4, 1, 6, 8, 2, 3, 7, 1, 2]
+}
+
+# Convert data to NumPy arrays
+smoking = np.array(data['Smoking'])
+lung_cancer = np.array(data['LungCancer'])
+
+# Calculate correlation coefficient
+correlation_coefficient = np.corrcoef(smoking, lung_cancer)[0, 1]
+print("Correlation coefficient between smoking and lung cancer rates:", correlation_coefficient)
+
+# Create scatter plot
+plt.figure(figsize=(8, 6))
+plt.scatter(smoking, lung_cancer, color='blue')
+plt.title('Relationship between Smoking and Lung Cancer')
+plt.xlabel('Smoking')
+plt.ylabel('Lung Cancer')
+plt.grid(True)
+plt.show()
